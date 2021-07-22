@@ -10,7 +10,7 @@ class Wall : RenderObject {
 public:
 	glm::vec3 position = glm::vec3(0, 0, 0);
 public:
-	Wall(Cluster *cluster, glm::vec3 position, glm::vec4 color = glm::vec4(1.0f, 1.0f, 0.0f, 0.5f));
+	Wall(Cluster *cluster, glm::vec3 position, glm::vec4 color = glm::vec4(0.4f, 0.4f, 0.4f, 1.0f));
 	~Wall();
 public:
 	void render();

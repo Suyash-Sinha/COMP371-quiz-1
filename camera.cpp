@@ -28,7 +28,7 @@ void Camera::setRotation(glm::vec2 rotation) {
 	forward = glm::mat3(glm::rotate(glm::mat4(1.0), pitch, right)) * forward;
 	// Using the lookAt function, calculate the view matrix, the first argument is the position of the eye,
 	// the second argument is the position at which the eye is looking at and the final argument is the up axis.
-	view = glm::lookAt(position, position + forward, WORLD_UP);
+	view = glm::lookAt(position, glm::vec3(0.0f,0.0f,0.0f), WORLD_UP);
 	// Order matters.
 	viewProjection = projection * view;
 	dirty = true;
