@@ -10,6 +10,7 @@
 #include "scheduler.hpp"
 #include "shader_manager.hpp"
 #include "wall.hpp"
+#include "sky.hpp"
 
 class Application {
 public:
@@ -29,6 +30,7 @@ public:
 	GLFWwindow* window = nullptr;
 	glm::dvec2 lastMousePos = glm::dvec2(0, 0);
 public:
+	Sky* sky;
 	Camera* camera;
 	Grid* grid;
 	ShaderManager *shaderMan;

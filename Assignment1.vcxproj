@@ -159,6 +159,7 @@
     <ClCompile Include="scheduler.cpp" />
     <ClCompile Include="shader_manager.cpp" />
     <ClCompile Include="cluster.cpp" />
+    <ClCompile Include="sky.cpp" />
     <ClCompile Include="utility.cpp" />
     <ClCompile Include="wall.cpp" />
   </ItemGroup>
@@ -171,6 +172,7 @@
     <ClInclude Include="render_object.hpp" />
     <ClInclude Include="scheduler.hpp" />
     <ClInclude Include="shader_manager.hpp" />
+    <ClInclude Include="sky.hpp" />
     <ClInclude Include="utility.hpp" />
     <ClInclude Include="wall.hpp" />
   </ItemGroup>

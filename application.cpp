@@ -50,6 +50,7 @@ void Application::initialiseOpenGL() {
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 	glFrontFace(GL_CW);
+	glEnable(GL_DEPTH_TEST);
 }
 void Application::initialiseOpenGLShaders() {
 	printf("Loading OpenGL shaders\n");
@@ -64,12 +65,13 @@ void Application::initialiseScene() {
 	float const ASPECT_RATIO =
 		((float)Application::WINDOW_SIZE[0]) / Application::WINDOW_SIZE[1];
 	glm::mat4x4 const projection =
-		glm::perspective(45.0f, ASPECT_RATIO, 0.1f, 1000.0f);
+		glm::perspective(glm::radians(74.0f), ASPECT_RATIO, 0.1f, 1000.0f);
 	camera = new Camera(projection, glm::vec2(glm::radians(-10.0f), 0));
 	grid = new Grid(100, 100, 0.5f);
 	xAxis = new Arrow(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f), 2.5f);
 	yAxis = new Arrow(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f), 2.5f);
 	zAxis = new Arrow(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), 2.5f);
+	sky = new Sky(glm::vec4(0.529f, 0.808f, 0.922f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 	clusters = new Cluster[5];
 	walls = new Wall*[5];
 	for (int i = 0; i < 5; i += 1) {
@@ -160,7 +162,6 @@ void Application::handleMouse() {
 void Application::render() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	shaderMan->useProgram("basic");
-	glEnable(GL_DEPTH_TEST);
 	if (camera->dirty) {
 		shaderMan->setUniform("viewProjection", "basic", camera->viewProjection);
 	}
@@ -179,13 +180,13 @@ void Application::render() {
 
 	shaderMan->setUniform("object", "basic", glm::mat4(1.0f));
 	// The depth test is disabled for the axises to allow them to be drawn ontop of everything else.
-	glDisable(GL_DEPTH_TEST);
 	shaderMan->setUniform("object", "basic", glm::mat4(1.0f));
 	zAxis->render();
 	shaderMan->setUniform("object", "basic", glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0, 1.0f, 0)));
 	xAxis->render();
 	shaderMan->setUniform("object", "basic", glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(1.0f, 0, 0)));
 	yAxis->render();
+	sky->render();
 	glfwSwapBuffers(window);
 	camera->dirty = false;
 }
