@@ -72,9 +72,12 @@ void Application::initialiseScene() {
 	yAxis = new Arrow(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f), 2.5f);
 	zAxis = new Arrow(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), 2.5f);
 	sky = new Sky(glm::vec4(0.529f, 0.808f, 0.922f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+
 	clusters = new Cluster[5];
+	//{ cluster_s,cluster_u,cluster_y,cluster_a,cluster_s,cluster_h };
 	walls = new Wall*[5];
 	for (int i = 0; i < 5; i += 1) {
+		clusters[i].setName(i);
 		clusters[i].setPosition(INITIAL_CLUSTER_POSITIONS[i]);
 		walls[i] = new Wall(&clusters[i], INITIAL_CLUSTER_POSITIONS[i]);
 	}

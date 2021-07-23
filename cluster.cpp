@@ -6,13 +6,14 @@
 // This allows each cube to be positioned at a distinct offset but also allows every cube to move and rotate
 // with the other cubes of the cluster.
 Cluster::Cluster() {
-	generateCluster();
+	//generateCluster();
 }
 Cluster::Cluster(glm::vec3 position, float rotation, float scale) {
 	this->position = position;
 	this->rotation = rotation;
 	this->scale = scale;
 	generateCluster();
+
 }
 Cluster::~Cluster() {
 	return;
@@ -78,4 +79,107 @@ void Cluster::render(ShaderManager* shaderMan) {
 }
 void Cluster::setPosition(glm::vec3 position) {
 	this->position = position;
+}
+
+void Cluster::setName(int i) {
+	switch (i)
+	{
+		//creating first letter S
+	case 0:
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f))); 
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, -1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 2.0f, 0.0f)));
+		break;
+		//creating second letter U
+	case 1:
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, -1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, -1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, -2.0f, 0.0f)));
+		break;
+		//creating third letter Y
+	case 2:
+
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f,2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, -1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 0.0f, 0.0f)));
+		break;
+		//creating fourth letter A
+	case 3:
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, -1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, -1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 2.0f, 0.0f)));
+		break;
+		//creating fifth letter S
+	case 4:
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, -1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, -2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 0.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 1.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-2.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(-1.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(0.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(1.0f, 2.0f, 0.0f)));
+		cubes.push_back(new Cube(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec3(2.0f, 2.0f, 0.0f)));
+		
+		break;
+
+	default:
+		break;
+	}
+
+
 }

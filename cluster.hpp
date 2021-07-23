@@ -21,4 +21,5 @@ public:
 	void generateCluster();
 	void render(ShaderManager *shaderMan);
 	void setPosition(glm::vec3 position);
+	void setName(int i);
 };

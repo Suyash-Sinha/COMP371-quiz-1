@@ -36,6 +36,7 @@ public:
 	ShaderManager *shaderMan;
 	Cube *cube;
 	Arrow *xAxis, *yAxis, *zAxis;
+	
 public:
 	glm::vec2 worldRotation = glm::vec2(0, 0);
 	Cluster *clusters;
