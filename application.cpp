@@ -74,7 +74,7 @@ void Application::initialiseScene() {
 	sky = new Sky(glm::vec4(0.529f, 0.808f, 0.922f, 1.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 
 	clusters = new Cluster[5];
-	//{ cluster_s,cluster_u,cluster_y,cluster_a,cluster_s,cluster_h };
+	
 	walls = new Wall*[5];
 	for (int i = 0; i < 5; i += 1) {
 		clusters[i].setName(i);
@@ -135,6 +135,7 @@ void handleInput(GLFWwindow* window, int key, int scancode, int action, int mods
 	// Because the numerical keys are defined sequentially, this logic can be greatly simplified.
 	if (key >= GLFW_KEY_1 && key <= GLFW_KEY_5 && action == GLFW_PRESS) {
 		application->currentCluster = key - GLFW_KEY_1;
+		application->camera->setView(application->clusters[application->currentCluster].position);
 	}
 	if (key == GLFW_KEY_H && action == GLFW_PRESS) {
 		for (int i = 0; i < 5; i += 1) {
