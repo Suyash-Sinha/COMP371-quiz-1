@@ -195,8 +195,8 @@ void Application::render() {
 	camera->dirty = false;
 }
 void Application::update() {
-	handleMouse();
-	camera->update(scheduler.currentTime);
+	//handleMouse();
+	//camera->update(scheduler.currentTime);
 }
 int main(int argc, char const* argv[]) {
 	// The application was encapsulated in a class to have a simple way to

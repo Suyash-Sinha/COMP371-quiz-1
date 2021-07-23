@@ -57,10 +57,10 @@ void Camera::setView(glm::vec3 towards) {
 
 }
 void Camera::update(double currentTime) {
-	/*forward = glm::mat3(glm::rotate(glm::mat4(1.0), yaw, WORLD_UP)) * glm::vec3(0, 0, -1);
+	forward = glm::mat3(glm::rotate(glm::mat4(1.0), yaw, WORLD_UP)) * glm::vec3(0, 0, -1);
 	right = glm::cross(forward, Camera::WORLD_UP);
 	forward = glm::mat3(glm::rotate(glm::mat4(1.0), pitch, right)) * forward;
 	view = glm::lookAt(position, position + forward, WORLD_UP);
 	viewProjection = projection * view;
-	dirty = true;*/
+	dirty = true;
 }
