@@ -45,7 +45,7 @@ void Camera::rotate(glm::vec2 mouseDelta) {
 	right = glm::cross(forward, Camera::WORLD_UP);
 	rotation = rotation * glm::rotate(glm::mat4(1.0), -1 * pitch, right);
 	forward = glm::mat3(glm::rotate(glm::mat4(1.0), pitch, right)) * forward;
-	view = glm::lookAt(position, position + forward, WORLD_UP);
+	view = glm::lookAt(position, glm::vec3(0,0,0), WORLD_UP);
 	dirty = true;
 }
 
