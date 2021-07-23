@@ -32,7 +32,7 @@ Wall::Wall(Cluster* cluster, glm::vec3 position, glm::vec4 color) : RenderObject
 	std::vector<GLuint> indices;
 	GLuint indexOffset = 0;
 	GLfloat const s = 0.5;
-	GLfloat zOffset = -2.0f;
+	GLfloat zOffset = 0.0f;
 	GLfloat thickness = 0.2f;
 	for (int i = 0; i < 7; i += 1) {
 		for (int j = 0; j < 7; j += 1) {
